@@ -26,10 +26,10 @@ module.exports = {
         'ci', // 修改 CI 配置、脚本
         'revert', // 回滚 commit
         'chore', // 对构建过程或辅助工具和库的更改（不影响源文件、测试用例）
-        'wip' // 对构建过程或辅助工具和库的更改（不影响源文件、测试用例）
-      ]
+        'wip', // 对构建过程或辅助工具和库的更改（不影响源文件、测试用例）
+      ],
     ],
-    'subject-case': [0] // subject大小写不做校验
+    'subject-case': [0], // subject大小写不做校验
   },
 
   prompt: {
@@ -45,21 +45,21 @@ module.exports = {
       footer: '列举关联issue (可选) 例如: #31, #I3244 :\n',
       generatingByAI: '正在通过 AI 生成你的提交简短描述...',
       generatedSelectByAI: '选择一个 AI 生成的简短描述:',
-      confirmCommit: '是否提交或修改commit ?'
+      confirmCommit: '是否提交或修改commit ?',
     },
     // prettier-ignore
     types: [
-      { value: "feat",     name: "特性:  新增功能" },
-      { value: "fix",      name: "修复:  修复缺陷" },
-      { value: "docs",     name: "文档:  文档变更(更新README文件，或者注释)" },
-      { value: "style",    name: "格式:  代码格式（空格、格式化、缺失的分号等）" },
-      { value: "refactor", name: "重构:  代码重构（不修复错误也不添加特性的代码更改）" },
-      { value: "perf",     name: "性能:  性能优化" },
-      { value: "test",     name: "测试:  添加疏漏测试或已有测试改动" },
-      { value: "build",    name: "构建:  构建流程、外部依赖变更（如升级 npm 包、修改 vite 配置等）" },
-      { value: "ci",       name: "集成:  修改 CI 配置、脚本" },
-      { value: "revert",   name: "回退:  回滚 commit" },
-      { value: "chore",    name: "其他:  对构建过程或辅助工具和库的更改（不影响源文件、测试用例）" },
+      { value: 'feat', name: '特性:  新增功能' },
+      { value: 'fix', name: '修复:  修复缺陷' },
+      { value: 'docs', name: '文档:  文档变更(更新README文件，或者注释)' },
+      { value: 'style', name: '格式:  代码格式（空格、格式化、缺失的分号等）' },
+      { value: 'refactor', name: '重构:  代码重构（不修复错误也不添加特性的代码更改）' },
+      { value: 'perf', name: '性能:  性能优化' },
+      { value: 'test', name: '测试:  添加疏漏测试或已有测试改动' },
+      { value: 'build', name: '构建:  构建流程、外部依赖变更（如升级 npm 包、修改 vite 配置等）' },
+      { value: 'ci', name: '集成:  修改 CI 配置、脚本' },
+      { value: 'revert', name: '回退:  回滚 commit' },
+      { value: 'chore', name: '其他:  对构建过程或辅助工具和库的更改（不影响源文件、测试用例）' },
     ],
     useEmoji: true,
     emojiAlign: 'center',
@@ -92,6 +92,6 @@ module.exports = {
     defaultBody: '',
     defaultIssues: '',
     defaultScope: '',
-    defaultSubject: ''
-  }
+    defaultSubject: '',
+  },
 }
