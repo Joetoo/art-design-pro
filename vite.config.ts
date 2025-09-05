@@ -77,9 +77,7 @@ export default ({ mode }: { mode: string }) => {
       vue(),
       // 自动导入 components 下面的组件，无需 import 引入
       Components({
-        deep: true,
-        extensions: ['vue'],
-        dirs: ['src/components'], // 自动导入的组件目录
+        dirs: ['./src/components/**'],
         resolvers: [ElementPlusResolver()],
         dts: 'src/types/components.d.ts', // 指定类型声明文件的路径
       }),
@@ -87,12 +85,7 @@ export default ({ mode }: { mode: string }) => {
         imports: ['vue', 'vue-router', '@vueuse/core', 'pinia'],
         resolvers: [ElementPlusResolver()],
         dts: 'src/types/auto-imports.d.ts',
-        eslintrc: {
-          // 这里先设置成true然后pnpm dev 运行之后会生成 .auto-import.json 文件之后，在改为false
-          enabled: true,
-          filepath: './.auto-import.json',
-          globalsPropValue: true,
-        },
+        dirs: ['./src/composables/**'],
       }),
       // 打包分析
       // visualizer({

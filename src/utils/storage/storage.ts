@@ -1,8 +1,8 @@
 import { ElMessage } from 'element-plus'
 import { router } from '@/router'
+import { RoutesAlias } from '@/router/routesAlias'
 import { useUserStore } from '@/store/modules/user'
 import { StorageConfig } from '@/utils/storage/storage-config'
-import { RoutesAlias } from '@/router/routesAlias'
 
 /**
  * 存储兼容性管理器
@@ -34,7 +34,7 @@ class StorageCompatibilityManager {
     const currentVersionPattern = StorageConfig.createCurrentVersionPattern()
 
     return storageKeys.some(
-      (key) => currentVersionPattern.test(key) && localStorage.getItem(key) !== null
+      key => currentVersionPattern.test(key) && localStorage.getItem(key) !== null,
     )
   }
 
@@ -45,7 +45,7 @@ class StorageCompatibilityManager {
     const storageKeys = Object.keys(localStorage)
     const versionPattern = StorageConfig.createVersionPattern()
 
-    return storageKeys.some((key) => versionPattern.test(key) && localStorage.getItem(key) !== null)
+    return storageKeys.some(key => versionPattern.test(key) && localStorage.getItem(key) !== null)
   }
 
   /**
@@ -69,7 +69,7 @@ class StorageCompatibilityManager {
       type: 'error',
       offset: 40,
       duration: 5000,
-      message: '系统检测到本地数据异常，请重新登录系统恢复使用！'
+      message: '系统检测到本地数据异常，请重新登录系统恢复使用！',
     })
   }
 

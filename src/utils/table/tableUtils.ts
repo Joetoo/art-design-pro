@@ -37,7 +37,7 @@ function extractTotal(obj: Record<string, unknown>, records: unknown[], fields: 
 // 辅助函数：提取分页参数
 function extractPagination(
   obj: Record<string, unknown>,
-  data?: Record<string, unknown>
+  data?: Record<string, unknown>,
 ): Pick<ApiResponse<unknown>, 'current' | 'size'> | undefined {
   const result: Partial<Pick<ApiResponse<unknown>, 'current' | 'size'>> = {}
   const sources = [obj, data ?? {}]
@@ -134,7 +134,7 @@ export const extractTableData = <T>(response: ApiResponse<T>): T[] => {
  */
 export const updatePaginationFromResponse = <T>(
   pagination: Api.Common.PaginatingParams,
-  response: ApiResponse<T>
+  response: ApiResponse<T>,
 ): void => {
   pagination.total = response.total ?? pagination.total ?? 0
 
@@ -157,8 +157,8 @@ export const updatePaginationFromResponse = <T>(
  */
 export const createSmartDebounce = <T extends (...args: any[]) => Promise<any>>(
   fn: T,
-  delay: number
-): T & { cancel: () => void; flush: () => Promise<any> } => {
+  delay: number,
+): T & { cancel: () => void, flush: () => Promise<any> } => {
   let timeoutId: NodeJS.Timeout | null = null
   let lastArgs: Parameters<T> | null = null
   let lastResolve: ((value: any) => void) | null = null
@@ -224,19 +224,19 @@ export const createSmartDebounce = <T extends (...args: any[]) => Promise<any>>(
  */
 export const createErrorHandler = (
   onError?: (error: TableError) => void,
-  enableLog: boolean = false
+  enableLog: boolean = false,
 ) => {
   const logger = {
     error: (message: string, ...args: any[]) => {
       if (enableLog) console.error(`[useTable] ${message}`, ...args)
-    }
+    },
   }
 
   return (err: unknown, context: string): TableError => {
     const tableError: TableError = {
       code: 'UNKNOWN_ERROR',
       message: '未知错误',
-      details: err
+      details: err,
     }
 
     if (err instanceof Error) {

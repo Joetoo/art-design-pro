@@ -1,8 +1,9 @@
-import axios, { AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from 'axios'
-import { useUserStore } from '@/store/modules/user'
-import { ApiStatus } from './status'
-import { HttpError, handleError, showError } from './error'
+import type { AxiosRequestConfig, AxiosResponse, InternalAxiosRequestConfig } from 'axios'
+import axios from 'axios'
 import { $t } from '@/locales'
+import { useUserStore } from '@/store/modules/user'
+import { handleError, HttpError, showError } from './error'
+import { ApiStatus } from './status'
 
 /** 请求配置常量 */
 const REQUEST_TIMEOUT = 15000
@@ -27,7 +28,7 @@ const axiosInstance = axios.create({
   timeout: REQUEST_TIMEOUT,
   baseURL: VITE_API_URL,
   withCredentials: VITE_WITH_CREDENTIALS === 'true',
-  validateStatus: (status) => status >= 200 && status < 300,
+  validateStatus: status => status >= 200 && status < 300,
   transformResponse: [
     (data, headers) => {
       const contentType = headers['content-type']
@@ -39,8 +40,8 @@ const axiosInstance = axios.create({
         }
       }
       return data
-    }
-  ]
+    },
+  ],
 })
 
 /** 请求拦截器 */
@@ -59,7 +60,7 @@ axiosInstance.interceptors.request.use(
   (error) => {
     showError(createHttpError($t('httpMsg.requestConfigError'), ApiStatus.error))
     return Promise.reject(error)
-  }
+  },
 )
 
 /** 响应拦截器 */
@@ -73,7 +74,7 @@ axiosInstance.interceptors.response.use(
   (error) => {
     if (error.response?.status === ApiStatus.unauthorized) handleUnauthorizedError()
     return Promise.reject(handleError(error))
-  }
+  },
 )
 
 /** 统一创建HttpError */
@@ -119,14 +120,14 @@ function shouldRetry(statusCode: number) {
     ApiStatus.internalServerError,
     ApiStatus.badGateway,
     ApiStatus.serviceUnavailable,
-    ApiStatus.gatewayTimeout
+    ApiStatus.gatewayTimeout,
   ].includes(statusCode)
 }
 
 /** 请求重试逻辑 */
 async function retryRequest<T>(
   config: ExtendedAxiosRequestConfig,
-  retries: number = MAX_RETRIES
+  retries: number = MAX_RETRIES,
 ): Promise<T> {
   try {
     return await request<T>(config)
@@ -141,16 +142,16 @@ async function retryRequest<T>(
 
 /** 延迟函数 */
 function delay(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms))
+  return new Promise(resolve => setTimeout(resolve, ms))
 }
 
 /** 请求函数 */
 async function request<T = any>(config: ExtendedAxiosRequestConfig): Promise<T> {
   // POST | PUT 参数自动填充
   if (
-    ['POST', 'PUT'].includes(config.method?.toUpperCase() || '') &&
-    config.params &&
-    !config.data
+    ['POST', 'PUT'].includes(config.method?.toUpperCase() || '')
+    && config.params
+    && !config.data
   ) {
     config.data = config.params
     config.params = undefined
@@ -184,7 +185,7 @@ const api = {
   },
   request<T>(config: ExtendedAxiosRequestConfig) {
     return retryRequest<T>(config)
-  }
+  },
 }
 
 export default api

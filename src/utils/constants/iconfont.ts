@@ -23,7 +23,7 @@ function extractIconFromRule(rule: CSSRule): IconfontType | null {
   const unicode = content.replace(/['"\\]/g, '')
   return {
     className,
-    unicode: unicode ? `&#x${getUnicode(unicode)};` : undefined
+    unicode: unicode ? `&#x${getUnicode(unicode)};` : undefined,
   }
 }
 
@@ -47,7 +47,7 @@ export function extractIconClasses(): IconfontType[] {
         if (!processedErrors.has(styleSheetError)) {
           console.warn('Cannot read cssRules from stylesheet:', {
             error,
-            sheetHref: sheet.href
+            sheetHref: sheet.href,
           })
           processedErrors.add(styleSheetError)
         }

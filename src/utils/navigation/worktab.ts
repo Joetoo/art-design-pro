@@ -1,9 +1,9 @@
-import { useWorktabStore } from '@/store/modules/worktab'
-import { RouteLocationNormalized } from 'vue-router'
-import { isIframe } from './route'
-import { useSettingStore } from '@/store/modules/setting'
-import { getIframeRoutes } from '@/router/utils/menuToRouter'
+import type { RouteLocationNormalized } from 'vue-router'
 import { useCommon } from '@/composables/useCommon'
+import { getIframeRoutes } from '@/router/utils/menuToRouter'
+import { useSettingStore } from '@/store/modules/setting'
+import { useWorktabStore } from '@/store/modules/worktab'
+import { isIframe } from './route'
 
 /**
  * 根据当前路由信息设置工作标签页（worktab）
@@ -24,7 +24,7 @@ export const setWorktab = (to: RouteLocationNormalized): void => {
           name: name as string,
           keepAlive: meta.keepAlive as boolean,
           params,
-          query
+          query,
         })
       }
     } else if (useSettingStore().showWorkTab || path === useCommon().homePath.value) {
@@ -35,7 +35,7 @@ export const setWorktab = (to: RouteLocationNormalized): void => {
         keepAlive: meta.keepAlive as boolean,
         params,
         query,
-        fixedTab: meta.fixedTab as boolean
+        fixedTab: meta.fixedTab as boolean,
       })
     }
   }
