@@ -3,7 +3,7 @@ import type { FormInstance, FormRules } from 'element-plus'
 import type { LanguageEnum } from '@/enums/appEnum'
 import { ElMessage, ElNotification } from 'element-plus'
 import { useI18n } from 'vue-i18n'
-import { UserService } from '@/api/usersApi'
+import { fetchGetUserInfo, fetchLogin } from '@/api/auth'
 import AppConfig from '@/config'
 import { languageOptions } from '@/locales'
 import { RoutesAlias } from '@/router/routesAlias'
@@ -86,10 +86,6 @@ const setupAccount = (key: AccountKey) => {
   formData.password = selectedAccount?.password ?? ''
 }
 
-onMounted(() => {
-  setupAccount('super')
-})
-
 // 重置拖拽验证
 const resetDragVerify = () => {
   dragVerify.value.reset()
@@ -107,6 +103,10 @@ const showLoginSuccessNotice = () => {
     })
   }, 150)
 }
+
+onMounted(() => {
+  setupAccount('super')
+})
 
 // 登录
 const handleSubmit = async () => {
@@ -128,7 +128,7 @@ const handleSubmit = async () => {
     // 登录请求
     const { username, password } = formData
 
-    const { token, refreshToken } = await UserService.login({
+    const { token, refreshToken } = await fetchLogin({
       userName: username,
       password,
     })
@@ -140,7 +140,7 @@ const handleSubmit = async () => {
 
     // 存储token和用户信息
     userStore.setToken(token, refreshToken)
-    const userInfo = await UserService.getUserInfo()
+    const userInfo = await fetchGetUserInfo()
     userStore.setUserInfo(userInfo)
     userStore.setLoginStatus(true)
 
@@ -305,5 +305,5 @@ const changeLanguage = (lang: LanguageEnum) => {
 </template>
 
 <style lang="scss" scoped>
-@use './index';
+  @use './index';
 </style>
