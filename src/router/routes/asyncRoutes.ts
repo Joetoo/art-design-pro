@@ -1,6 +1,6 @@
-import { RoutesAlias } from '../routesAlias'
-import { AppRouteRecord } from '@/types/router'
+import type { AppRouteRecord } from '@/types/router'
 import { WEB_LINKS } from '@/utils/constants'
+import { RoutesAlias } from '../routesAlias'
 
 /**
  * 菜单列表、异步路由
@@ -35,7 +35,7 @@ export const asyncRoutes: AppRouteRecord[] = [
     meta: {
       title: 'menus.dashboard.title',
       icon: '&#xe721;',
-      roles: ['R_SUPER', 'R_ADMIN'] // 角色权限，前端控制模式（只有拥有这些角色的用户才能访问）
+      roles: ['R_SUPER', 'R_ADMIN'], // 角色权限，前端控制模式（只有拥有这些角色的用户才能访问）
     },
     children: [
       {
@@ -45,8 +45,8 @@ export const asyncRoutes: AppRouteRecord[] = [
         meta: {
           title: 'menus.dashboard.console',
           keepAlive: false,
-          fixedTab: true
-        }
+          fixedTab: true,
+        },
       },
       {
         path: 'analysis',
@@ -54,8 +54,8 @@ export const asyncRoutes: AppRouteRecord[] = [
         component: RoutesAlias.Analysis,
         meta: {
           title: 'menus.dashboard.analysis',
-          keepAlive: false
-        }
+          keepAlive: false,
+        },
       },
       {
         path: 'ecommerce',
@@ -63,10 +63,10 @@ export const asyncRoutes: AppRouteRecord[] = [
         component: RoutesAlias.Ecommerce,
         meta: {
           title: 'menus.dashboard.ecommerce',
-          keepAlive: false
-        }
-      }
-    ]
+          keepAlive: false,
+        },
+      },
+    ],
   },
   {
     path: '/template',
@@ -74,7 +74,7 @@ export const asyncRoutes: AppRouteRecord[] = [
     component: RoutesAlias.Layout,
     meta: {
       title: 'menus.template.title',
-      icon: '&#xe860;'
+      icon: '&#xe860;',
     },
     children: [
       {
@@ -83,8 +83,8 @@ export const asyncRoutes: AppRouteRecord[] = [
         component: RoutesAlias.Cards,
         meta: {
           title: 'menus.template.cards',
-          keepAlive: false
-        }
+          keepAlive: false,
+        },
       },
       {
         path: 'banners',
@@ -92,8 +92,8 @@ export const asyncRoutes: AppRouteRecord[] = [
         component: RoutesAlias.Banners,
         meta: {
           title: 'menus.template.banners',
-          keepAlive: false
-        }
+          keepAlive: false,
+        },
       },
       {
         path: 'charts',
@@ -101,8 +101,8 @@ export const asyncRoutes: AppRouteRecord[] = [
         component: RoutesAlias.Charts,
         meta: {
           title: 'menus.template.charts',
-          keepAlive: false
-        }
+          keepAlive: false,
+        },
       },
       {
         path: 'map',
@@ -110,8 +110,8 @@ export const asyncRoutes: AppRouteRecord[] = [
         component: RoutesAlias.Map,
         meta: {
           title: 'menus.template.map',
-          keepAlive: true
-        }
+          keepAlive: true,
+        },
       },
       {
         path: 'chat',
@@ -119,8 +119,8 @@ export const asyncRoutes: AppRouteRecord[] = [
         component: RoutesAlias.Chat,
         meta: {
           title: 'menus.template.chat',
-          keepAlive: true
-        }
+          keepAlive: true,
+        },
       },
       {
         path: 'calendar',
@@ -128,8 +128,8 @@ export const asyncRoutes: AppRouteRecord[] = [
         component: RoutesAlias.Calendar,
         meta: {
           title: 'menus.template.calendar',
-          keepAlive: true
-        }
+          keepAlive: true,
+        },
       },
       {
         path: 'pricing',
@@ -138,10 +138,10 @@ export const asyncRoutes: AppRouteRecord[] = [
         meta: {
           title: 'menus.template.pricing',
           keepAlive: true,
-          isFullPage: true // 是否全屏显示
-        }
-      }
-    ]
+          isFullPage: true, // 是否全屏显示
+        },
+      },
+    ],
   },
   {
     path: '/widgets',
@@ -149,7 +149,7 @@ export const asyncRoutes: AppRouteRecord[] = [
     component: RoutesAlias.Layout,
     meta: {
       title: 'menus.widgets.title',
-      icon: '&#xe81a;'
+      icon: '&#xe81a;',
     },
     children: [
       {
@@ -158,8 +158,8 @@ export const asyncRoutes: AppRouteRecord[] = [
         component: RoutesAlias.IconList,
         meta: {
           title: 'menus.widgets.iconList',
-          keepAlive: true
-        }
+          keepAlive: true,
+        },
       },
       {
         path: 'icon-selector',
@@ -167,8 +167,8 @@ export const asyncRoutes: AppRouteRecord[] = [
         component: RoutesAlias.IconSelector,
         meta: {
           title: 'menus.widgets.iconSelector',
-          keepAlive: true
-        }
+          keepAlive: true,
+        },
       },
       {
         path: 'image-crop',
@@ -176,8 +176,8 @@ export const asyncRoutes: AppRouteRecord[] = [
         component: RoutesAlias.ImageCrop,
         meta: {
           title: 'menus.widgets.imageCrop',
-          keepAlive: true
-        }
+          keepAlive: true,
+        },
       },
       {
         path: 'excel',
@@ -185,8 +185,8 @@ export const asyncRoutes: AppRouteRecord[] = [
         component: RoutesAlias.Excel,
         meta: {
           title: 'menus.widgets.excel',
-          keepAlive: true
-        }
+          keepAlive: true,
+        },
       },
       {
         path: 'video',
@@ -194,8 +194,8 @@ export const asyncRoutes: AppRouteRecord[] = [
         component: RoutesAlias.Video,
         meta: {
           title: 'menus.widgets.video',
-          keepAlive: true
-        }
+          keepAlive: true,
+        },
       },
       {
         path: 'count-to',
@@ -203,8 +203,8 @@ export const asyncRoutes: AppRouteRecord[] = [
         component: RoutesAlias.CountTo,
         meta: {
           title: 'menus.widgets.countTo',
-          keepAlive: false
-        }
+          keepAlive: false,
+        },
       },
       {
         path: 'wang-editor',
@@ -212,8 +212,8 @@ export const asyncRoutes: AppRouteRecord[] = [
         component: RoutesAlias.WangEditor,
         meta: {
           title: 'menus.widgets.wangEditor',
-          keepAlive: true
-        }
+          keepAlive: true,
+        },
       },
       {
         path: 'watermark',
@@ -221,8 +221,8 @@ export const asyncRoutes: AppRouteRecord[] = [
         component: RoutesAlias.Watermark,
         meta: {
           title: 'menus.widgets.watermark',
-          keepAlive: true
-        }
+          keepAlive: true,
+        },
       },
       {
         path: 'context-menu',
@@ -230,8 +230,8 @@ export const asyncRoutes: AppRouteRecord[] = [
         component: RoutesAlias.ContextMenu,
         meta: {
           title: 'menus.widgets.contextMenu',
-          keepAlive: true
-        }
+          keepAlive: true,
+        },
       },
       {
         path: 'qrcode',
@@ -239,8 +239,8 @@ export const asyncRoutes: AppRouteRecord[] = [
         component: RoutesAlias.Qrcode,
         meta: {
           title: 'menus.widgets.qrcode',
-          keepAlive: true
-        }
+          keepAlive: true,
+        },
       },
       {
         path: 'drag',
@@ -248,8 +248,8 @@ export const asyncRoutes: AppRouteRecord[] = [
         component: RoutesAlias.Drag,
         meta: {
           title: 'menus.widgets.drag',
-          keepAlive: true
-        }
+          keepAlive: true,
+        },
       },
       {
         path: 'text-scroll',
@@ -257,8 +257,8 @@ export const asyncRoutes: AppRouteRecord[] = [
         component: RoutesAlias.TextScroll,
         meta: {
           title: 'menus.widgets.textScroll',
-          keepAlive: true
-        }
+          keepAlive: true,
+        },
       },
       {
         path: 'fireworks',
@@ -267,8 +267,8 @@ export const asyncRoutes: AppRouteRecord[] = [
         meta: {
           title: 'menus.widgets.fireworks',
           keepAlive: true,
-          showTextBadge: 'Hot'
-        }
+          showTextBadge: 'Hot',
+        },
       },
       {
         path: '/outside/iframe/elementui',
@@ -279,10 +279,9 @@ export const asyncRoutes: AppRouteRecord[] = [
           keepAlive: false,
           link: 'https://element-plus.org/zh-CN/component/overview.html',
           isIframe: true,
-          showBadge: true
-        }
-      }
-    ]
+        },
+      },
+    ],
   },
   {
     path: '/examples',
@@ -291,7 +290,7 @@ export const asyncRoutes: AppRouteRecord[] = [
     meta: {
       title: 'menus.examples.title',
       icon: '&#xe8d4;',
-      showBadge: true
+      showBadge: true,
     },
     children: [
       {
@@ -300,7 +299,6 @@ export const asyncRoutes: AppRouteRecord[] = [
         component: '',
         meta: {
           title: 'menus.examples.permission.title',
-          showBadge: true
         },
         children: [
           {
@@ -309,8 +307,8 @@ export const asyncRoutes: AppRouteRecord[] = [
             component: RoutesAlias.PermissionSwitchRole,
             meta: {
               title: 'menus.examples.permission.switchRole',
-              keepAlive: true
-            }
+              keepAlive: true,
+            },
           },
           {
             path: RoutesAlias.PermissionButtonAuth,
@@ -322,38 +320,38 @@ export const asyncRoutes: AppRouteRecord[] = [
               authList: [
                 {
                   title: '新增',
-                  authMark: 'add'
+                  authMark: 'add',
                 },
                 {
                   title: '编辑',
-                  authMark: 'edit'
+                  authMark: 'edit',
                 },
                 {
                   title: '删除',
-                  authMark: 'delete'
+                  authMark: 'delete',
                 },
                 {
                   title: '导出',
-                  authMark: 'export'
+                  authMark: 'export',
                 },
                 {
                   title: '查看',
-                  authMark: 'view'
+                  authMark: 'view',
                 },
                 {
                   title: '发布',
-                  authMark: 'publish'
+                  authMark: 'publish',
                 },
                 {
                   title: '配置',
-                  authMark: 'config'
+                  authMark: 'config',
                 },
                 {
                   title: '管理',
-                  authMark: 'manage'
-                }
-              ]
-            }
+                  authMark: 'manage',
+                },
+              ],
+            },
           },
           {
             path: RoutesAlias.PermissionPageVisibility,
@@ -362,18 +360,18 @@ export const asyncRoutes: AppRouteRecord[] = [
             meta: {
               title: 'menus.examples.permission.pageVisibility',
               keepAlive: true,
-              roles: ['R_SUPER'] // 仅超级管理员可访问
-            }
-          }
-        ]
+              roles: ['R_SUPER'], // 仅超级管理员可访问
+            },
+          },
+        ],
       },
       {
         path: 'tabs',
         name: 'Tabs',
         component: RoutesAlias.ExamplesTabs,
         meta: {
-          title: 'menus.examples.tabs'
-        }
+          title: 'menus.examples.tabs',
+        },
       },
       {
         path: 'tables/basic',
@@ -381,8 +379,8 @@ export const asyncRoutes: AppRouteRecord[] = [
         component: RoutesAlias.ExamplesTablesBasic,
         meta: {
           title: 'menus.examples.tablesBasic',
-          keepAlive: true
-        }
+          keepAlive: true,
+        },
       },
       {
         path: 'tables',
@@ -390,8 +388,18 @@ export const asyncRoutes: AppRouteRecord[] = [
         component: RoutesAlias.ExamplesTables,
         meta: {
           title: 'menus.examples.tables',
-          keepAlive: true
-        }
+          keepAlive: true,
+        },
+      },
+      {
+        path: 'forms',
+        name: 'Forms',
+        component: RoutesAlias.ExamplesForms,
+        meta: {
+          title: 'menus.examples.forms',
+          keepAlive: true,
+          showTextBadge: 'new',
+        },
       },
       {
         path: 'form/search-bar',
@@ -399,8 +407,8 @@ export const asyncRoutes: AppRouteRecord[] = [
         component: RoutesAlias.ExamplesSearchBar,
         meta: {
           title: 'menus.examples.searchBar',
-          keepAlive: true
-        }
+          keepAlive: true,
+        },
       },
       {
         path: 'tables/tree',
@@ -409,10 +417,9 @@ export const asyncRoutes: AppRouteRecord[] = [
         meta: {
           title: 'menus.examples.tablesTree',
           keepAlive: true,
-          showBadge: true
-        }
-      }
-    ]
+        },
+      },
+    ],
   },
 
   {
@@ -422,8 +429,7 @@ export const asyncRoutes: AppRouteRecord[] = [
     meta: {
       title: 'menus.system.title',
       icon: '&#xe7b9;',
-      showBadge: true,
-      roles: ['R_SUPER', 'R_ADMIN']
+      roles: ['R_SUPER', 'R_ADMIN'],
     },
     children: [
       {
@@ -433,8 +439,8 @@ export const asyncRoutes: AppRouteRecord[] = [
         meta: {
           title: 'menus.system.user',
           keepAlive: true,
-          roles: ['R_SUPER', 'R_ADMIN']
-        }
+          roles: ['R_SUPER', 'R_ADMIN'],
+        },
       },
       {
         path: 'role',
@@ -443,9 +449,8 @@ export const asyncRoutes: AppRouteRecord[] = [
         meta: {
           title: 'menus.system.role',
           keepAlive: true,
-          showBadge: true,
-          roles: ['R_SUPER']
-        }
+          roles: ['R_SUPER'],
+        },
       },
       {
         path: 'user-center',
@@ -455,8 +460,8 @@ export const asyncRoutes: AppRouteRecord[] = [
           title: 'menus.system.userCenter',
           isHide: true,
           keepAlive: true,
-          isHideTab: true
-        }
+          isHideTab: true,
+        },
       },
       {
         path: 'menu',
@@ -466,22 +471,21 @@ export const asyncRoutes: AppRouteRecord[] = [
           title: 'menus.system.menu',
           keepAlive: true,
           roles: ['R_SUPER'],
-          showBadge: true,
           authList: [
             {
               title: '新增',
-              authMark: 'add'
+              authMark: 'add',
             },
             {
               title: '编辑',
-              authMark: 'edit'
+              authMark: 'edit',
             },
             {
               title: '删除',
-              authMark: 'delete'
-            }
-          ]
-        }
+              authMark: 'delete',
+            },
+          ],
+        },
       },
       {
         path: 'nested',
@@ -489,7 +493,7 @@ export const asyncRoutes: AppRouteRecord[] = [
         component: '',
         meta: {
           title: 'menus.system.nested',
-          keepAlive: true
+          keepAlive: true,
         },
         children: [
           {
@@ -499,8 +503,8 @@ export const asyncRoutes: AppRouteRecord[] = [
             meta: {
               title: 'menus.system.menu1',
               icon: '&#xe676;',
-              keepAlive: true
-            }
+              keepAlive: true,
+            },
           },
           {
             path: 'menu2',
@@ -509,7 +513,7 @@ export const asyncRoutes: AppRouteRecord[] = [
             meta: {
               title: 'menus.system.menu2',
               icon: '&#xe676;',
-              keepAlive: true
+              keepAlive: true,
             },
             children: [
               {
@@ -519,10 +523,10 @@ export const asyncRoutes: AppRouteRecord[] = [
                 meta: {
                   title: 'menus.system.menu21',
                   icon: '&#xe676;',
-                  keepAlive: true
-                }
-              }
-            ]
+                  keepAlive: true,
+                },
+              },
+            ],
           },
           {
             path: 'menu3',
@@ -531,7 +535,7 @@ export const asyncRoutes: AppRouteRecord[] = [
             meta: {
               title: 'menus.system.menu3',
               icon: '&#xe676;',
-              keepAlive: true
+              keepAlive: true,
             },
             children: [
               {
@@ -541,8 +545,8 @@ export const asyncRoutes: AppRouteRecord[] = [
                 meta: {
                   title: 'menus.system.menu31',
                   icon: '&#xe676;',
-                  keepAlive: true
-                }
+                  keepAlive: true,
+                },
               },
               {
                 path: 'menu3-2',
@@ -551,7 +555,7 @@ export const asyncRoutes: AppRouteRecord[] = [
                 meta: {
                   title: 'menus.system.menu32',
                   icon: '&#xe676;',
-                  keepAlive: true
+                  keepAlive: true,
                 },
                 children: [
                   {
@@ -561,16 +565,16 @@ export const asyncRoutes: AppRouteRecord[] = [
                     meta: {
                       title: 'menus.system.menu321',
                       icon: '&#xe676;',
-                      keepAlive: true
-                    }
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    ]
+                      keepAlive: true,
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    ],
   },
   {
     path: '/article',
@@ -579,7 +583,7 @@ export const asyncRoutes: AppRouteRecord[] = [
     meta: {
       title: 'menus.article.title',
       icon: '&#xe7ae;',
-      roles: ['R_SUPER', 'R_ADMIN']
+      roles: ['R_SUPER', 'R_ADMIN'],
     },
     children: [
       {
@@ -592,14 +596,14 @@ export const asyncRoutes: AppRouteRecord[] = [
           authList: [
             {
               title: '新增',
-              authMark: 'add'
+              authMark: 'add',
             },
             {
               title: '编辑',
-              authMark: 'edit'
-            }
-          ]
-        }
+              authMark: 'edit',
+            },
+          ],
+        },
       },
 
       {
@@ -610,8 +614,8 @@ export const asyncRoutes: AppRouteRecord[] = [
           title: 'menus.article.articleDetail',
           isHide: true,
           keepAlive: true,
-          activePath: '/article/article-list' // 激活菜单路径
-        }
+          activePath: '/article/article-list', // 激活菜单路径
+        },
       },
       {
         path: 'comment',
@@ -619,8 +623,8 @@ export const asyncRoutes: AppRouteRecord[] = [
         component: RoutesAlias.Comment,
         meta: {
           title: 'menus.article.comment',
-          keepAlive: true
-        }
+          keepAlive: true,
+        },
       },
       {
         path: 'publish',
@@ -632,12 +636,12 @@ export const asyncRoutes: AppRouteRecord[] = [
           authList: [
             {
               title: '发布',
-              authMark: 'add'
-            }
-          ]
-        }
-      }
-    ]
+              authMark: 'add',
+            },
+          ],
+        },
+      },
+    ],
   },
   {
     path: '/result',
@@ -645,7 +649,7 @@ export const asyncRoutes: AppRouteRecord[] = [
     component: RoutesAlias.Layout,
     meta: {
       title: 'menus.result.title',
-      icon: '&#xe715;'
+      icon: '&#xe715;',
     },
     children: [
       {
@@ -654,8 +658,8 @@ export const asyncRoutes: AppRouteRecord[] = [
         component: RoutesAlias.Success,
         meta: {
           title: 'menus.result.success',
-          keepAlive: true
-        }
+          keepAlive: true,
+        },
       },
       {
         path: 'fail',
@@ -663,10 +667,10 @@ export const asyncRoutes: AppRouteRecord[] = [
         component: RoutesAlias.Fail,
         meta: {
           title: 'menus.result.fail',
-          keepAlive: true
-        }
-      }
-    ]
+          keepAlive: true,
+        },
+      },
+    ],
   },
   {
     path: '/exception',
@@ -674,7 +678,7 @@ export const asyncRoutes: AppRouteRecord[] = [
     component: RoutesAlias.Layout,
     meta: {
       title: 'menus.exception.title',
-      icon: '&#xe820;'
+      icon: '&#xe820;',
     },
     children: [
       {
@@ -684,8 +688,8 @@ export const asyncRoutes: AppRouteRecord[] = [
         meta: {
           title: 'menus.exception.forbidden',
           keepAlive: true,
-          isFullPage: true
-        }
+          isFullPage: true,
+        },
       },
       {
         path: '404',
@@ -694,8 +698,8 @@ export const asyncRoutes: AppRouteRecord[] = [
         meta: {
           title: 'menus.exception.notFound',
           keepAlive: true,
-          isFullPage: true
-        }
+          isFullPage: true,
+        },
       },
       {
         path: '500',
@@ -704,10 +708,10 @@ export const asyncRoutes: AppRouteRecord[] = [
         meta: {
           title: 'menus.exception.serverError',
           keepAlive: true,
-          isFullPage: true
-        }
-      }
-    ]
+          isFullPage: true,
+        },
+      },
+    ],
   },
 
   {
@@ -717,7 +721,7 @@ export const asyncRoutes: AppRouteRecord[] = [
     meta: {
       title: 'menus.safeguard.title',
       icon: '&#xe816;',
-      keepAlive: false
+      keepAlive: false,
     },
     children: [
       {
@@ -726,10 +730,10 @@ export const asyncRoutes: AppRouteRecord[] = [
         component: RoutesAlias.Server,
         meta: {
           title: 'menus.safeguard.server',
-          keepAlive: true
-        }
-      }
-    ]
+          keepAlive: true,
+        },
+      },
+    ],
   },
   {
     name: 'Document',
@@ -740,8 +744,8 @@ export const asyncRoutes: AppRouteRecord[] = [
       icon: '&#xe73e;',
       link: WEB_LINKS.DOCS,
       isIframe: false,
-      keepAlive: false
-    }
+      keepAlive: false,
+    },
   },
   {
     name: 'LiteVersion',
@@ -752,8 +756,8 @@ export const asyncRoutes: AppRouteRecord[] = [
       icon: '&#xe7ff;',
       link: WEB_LINKS.LiteVersion,
       isIframe: false,
-      keepAlive: false
-    }
+      keepAlive: false,
+    },
   },
   // 一级菜单
   {
@@ -764,7 +768,7 @@ export const asyncRoutes: AppRouteRecord[] = [
       title: 'menus.plan.log',
       showTextBadge: `v${__APP_VERSION__}`,
       icon: '&#xe712;',
-      keepAlive: false
-    }
-  }
+      keepAlive: false,
+    },
+  },
 ]

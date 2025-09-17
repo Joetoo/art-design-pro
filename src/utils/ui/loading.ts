@@ -10,6 +10,15 @@ const getLoadingBackground = (): string => {
   return isDark ? 'rgba(7, 7, 7, 0.85)' : '#fff'
 }
 
+/**
+ * 获取当前主题对应的loading背景色
+ * @returns 背景色字符串
+ */
+const getLoadingBackground = (): string => {
+  const isDark = document.documentElement.classList.contains('dark')
+  return isDark ? 'rgba(7, 7, 7, 0.85)' : '#fff'
+}
+
 const DEFAULT_LOADING_CONFIG = {
   lock: true,
   get background() {
