@@ -10,7 +10,6 @@
     "lint:fix": "eslint --fix",
     "lint:stylelint": "stylelint  \"**/*.{css,scss,vue}\" --fix",
     "lint:lint-staged": "lint-staged",
-    "prepare": "husky",
     "commit": "git-cz",
     "clean": "rimraf node_modules",
     "clean:dev": "tsx scripts/clean-dev.ts",

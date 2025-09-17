@@ -1,0 +1,13 @@
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - core-js
+  - cwebp-bin
+  - es5-ext
+  - esbuild
+  - gifsicle
+  - jpegtran-bin
+  - mozjpeg
+  - optipng-bin
+  - pngquant-bin
+  - simple-git-hooks
+  - vue-demi
